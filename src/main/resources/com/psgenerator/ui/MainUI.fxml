@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="com.psgenerator.ui.MainController">
+    <Label text="Directory Structure Generator" style="-fx-font-size: 18px;" />
+    <HBox spacing="5">
+        <Button text="Select Directory" fx:id="directoryButton" />
+        <Label text="Selected: " />
+        <Label fx:id="selectedDirectory" text="None" />
+    </HBox>
+    <HBox spacing="5">
+        <Label text="Output File: " />
+        <TextField fx:id="outputFileField" promptText="output.txt" />
+    </HBox>
+    <HBox spacing="5">
+        <Label text="Exclude: " />
+        <TextField fx:id="excludeField" promptText="e.g., node_modules, .git" />
+    </HBox>
+    <Button text="Generate" fx:id="generateButton" />
+    <Label text="Preview:" />
+    <TextArea fx:id="previewArea" editable="false" prefHeight="300" />
+</VBox>
