@@ -19,8 +19,33 @@ Thumbs.db
 # Java-specific files
 *.class
 
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# Maven-specific files
+target/
+!target/*.jar
+
+# IntelliJ IDEA-specific files
+.idea/
+*.iml
+*.ipr
+
+# Logs and temporary files
+*.tmp
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+
 # Dependency cache
 .mvn/
 .mvn/wrapper/maven-wrapper.jar
 !mvnw
 !mvnw.cmd
+
+*.py
