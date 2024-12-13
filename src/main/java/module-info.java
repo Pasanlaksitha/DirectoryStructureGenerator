@@ -7,6 +7,7 @@ module com.psgenerator {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
 //opens com.psgenerator to javafx.fxml;
     exports com.psgenerator.core;
