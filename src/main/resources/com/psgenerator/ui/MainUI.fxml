@@ -7,49 +7,57 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
 
 <VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.psgenerator.ui.MainController">
+
+    <!-- Menu Bar -->
+    <MenuBar>
+        <Menu text="About">
+            <MenuItem text="Author" fx:id="aboutMenuItem" />
+        </Menu>
+    </MenuBar>
+
     <Label style="-fx-font-size: 18px;" text="Directory Structure Generator" />
 
     <HBox spacing="5">
         <Label text="Output File: ">
-         <HBox.margin>
-            <Insets left="10.0" />
-         </HBox.margin></Label>
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin>
+        </Label>
         <TextField fx:id="outputFileField" promptText="output.txt">
-         <HBox.margin>
-            <Insets left="2.0" />
-         </HBox.margin></TextField>
-      <Button fx:id="outputDirectory" text="Output Directory" />
+            <HBox.margin>
+                <Insets left="2.0" />
+            </HBox.margin>
+        </TextField>
+        <Button fx:id="outputDirectory" text="Output Directory" />
     </HBox>
 
     <HBox spacing="5">
         <Label text="Exclude: ">
-         <HBox.margin>
-            <Insets left="10.0" />
-         </HBox.margin></Label>
+            <HBox.margin>
+                <Insets left="10.0" />
+            </HBox.margin>
+        </Label>
         <TextField fx:id="excludeField" promptText="e.g., node_modules, .git">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <HBox.margin>
-            <Insets left="20.0" />
-         </HBox.margin></TextField>
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+        </TextField>
     </HBox>
-   <HBox spacing="5">
-      <children>
-          <Button fx:id="directoryButton" text="Select Directory">
+    <HBox spacing="5">
+        <Button fx:id="directoryButton" text="Select Directory">
             <HBox.margin>
-               <Insets left="10.0" />
+                <Insets left="10.0" />
             </HBox.margin>
-         </Button>
-          <Button fx:id="generateButton" text="Generate">
+        </Button>
+        <Button fx:id="generateButton" text="Generate">
             <HBox.margin>
-               <Insets left="10.0" />
+                <Insets left="10.0" />
             </HBox.margin>
-         </Button>
-      </children>
-   </HBox>
+        </Button>
+    </HBox>
     <Label text="Preview:" />
     <TextArea fx:id="previewArea" editable="false" prefHeight="300" />
 </VBox>
