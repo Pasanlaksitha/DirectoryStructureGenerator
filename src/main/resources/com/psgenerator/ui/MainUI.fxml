@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml" fx:controller="com.psgenerator.ui.MainController">
-    <Label text="Directory Structure Generator" style="-fx-font-size: 18px;" />
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.psgenerator.ui.MainController">
+    <Label style="-fx-font-size: 18px;" text="Directory Structure Generator" />
+
     <HBox spacing="5">
-        <Button text="Select Directory" fx:id="directoryButton" />
-        <Label text="Selected: " />
-        <Label fx:id="selectedDirectory" text="None" />
+        <Label text="Output File: ">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin></Label>
+        <TextField fx:id="outputFileField" promptText="output.txt">
+         <HBox.margin>
+            <Insets left="2.0" />
+         </HBox.margin></TextField>
+      <Button fx:id="outputDirectory" text="Output Directory" />
     </HBox>
+
     <HBox spacing="5">
-        <Label text="Output File: " />
-        <TextField fx:id="outputFileField" promptText="output.txt" />
+        <Label text="Exclude: ">
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin></Label>
+        <TextField fx:id="excludeField" promptText="e.g., node_modules, .git">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin></TextField>
     </HBox>
-    <HBox spacing="5">
-        <Label text="Exclude: " />
-        <TextField fx:id="excludeField" promptText="e.g., node_modules, .git" />
-    </HBox>
-    <Button text="Generate" fx:id="generateButton" />
+   <HBox spacing="5">
+      <children>
+          <Button fx:id="directoryButton" text="Select Directory">
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </Button>
+          <Button fx:id="generateButton" text="Generate">
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </Button>
+      </children>
+   </HBox>
     <Label text="Preview:" />
     <TextArea fx:id="previewArea" editable="false" prefHeight="300" />
 </VBox>
