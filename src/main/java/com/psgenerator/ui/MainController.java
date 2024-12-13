@@ -10,6 +10,11 @@ import javafx.scene.image.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import javafx.geometry.Insets;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Alert;
+
 
 public class MainController {
 
@@ -99,15 +104,36 @@ public class MainController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("About");
         alert.setHeaderText("Directory Structure Generator");
-        alert.setContentText(
-                "Author: Pasan Laksitha\n\n" +
-                "Version: 1.0\n\n" +
-                "Repository: https://github.com/Pasanlaksitha/ProjectStructureGenerator.git\n\n" +
-                "This application allows users to generate an ASCII representation " +
-                "of a directory structure. you will need this if you  are a University student or pro ChatGPT user"
+
+        VBox content = new VBox(10);
+        content.setPadding(new Insets(10));
+
+        // Add content elements
+        Label authorLabel = new Label("Author: Pasan Laksitha");
+        Label versionLabel = new Label("Version: 1.0");
+        Label descriptionLabel = new Label(
+                "This application allows users to generate an ASCII representation \n" +
+                        "of a directory structure. It is particularly useful for university students \n" +
+                        "or pro ChatGPT users."
         );
+        descriptionLabel.setWrapText(true);
+        Label repo = new Label("Repository:");
+        Hyperlink repoLink = new Hyperlink("https://github.com/Pasanlaksitha/ProjectStructureGenerator.git");
+        repoLink.setOnAction(event -> {
+            try {
+                java.awt.Desktop.getDesktop().browse(new java.net.URI("https://github.com/Pasanlaksitha/ProjectStructureGenerator.git"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+
+        content.getChildren().addAll(authorLabel, versionLabel, repo, repoLink, descriptionLabel);
+        alert.getDialogPane().setContent(content);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/psgenerator/ui/assets/DSJ.png"))));
+
         alert.showAndWait();
     }
+
 }
